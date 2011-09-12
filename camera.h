@@ -4,7 +4,7 @@
 // #include "object.h"
 // #include "ray.h"
 
-class Camera {
+class Camera{
 	Vector position;
 	Vector look_at_point;
 	Vector up;
