@@ -1,17 +1,16 @@
-#ifndef __CAMERA_H__
-#define __CAMERA_H__
+#ifndef __PINHOLECAMERA_H__
+#define __PINHOLECAMERA_H__
 
-// #include "object.h"
-// #include "ray.h"
+#include "vector.h"
 
-class Camera{
+class PinHoleCamera {
 	Vector position;
 	Vector look_at_point;
 	Vector up;
 	float aspect_ratio;
 	float ulen;
 public:
-	Camera(Vector E, Vector C, Vector U, float ar, float ul){
+	PinHoleCamera(Vector E, Vector C, Vector U, float ar, float ul){
 		position = E;
 		look_at_point = C;
 		up = U;

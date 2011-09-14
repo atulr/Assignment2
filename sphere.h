@@ -18,20 +18,8 @@ private:
 		z = z1;
 		radius = r;
 	}
-	bool intersects(Ray ray) {
-		float a, b, c;
-		Vector center(x,y,z);
-		Vector oprime;
-		oprime = ray.return_origin().sub(center);
-		a = ray.return_direction().dot(ray.return_direction());
-		b = (float)(2 * (oprime.dot(ray.return_direction())));
-		c = (float)(oprime.dot(oprime) - (radius * radius));
-		if (discriminant(a,b,c) > 0.0f)		
-			return true;
-		else
-			return false;
-		
-	}
+	bool intersects(Ray ray);
+	void lambertian_shader();
 };
 
 #endif
