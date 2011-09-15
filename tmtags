@@ -1,0 +1,110 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+BINARYOUTPUT	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^BINARYOUTPUT=run_rt$/;"	macro	line:16
+BINDIR	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^BINDIR=..\/bin$/;"	macro	line:25
+CXX	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^CXX=g++$/;"	macro	line:47
+CXXFILENAMES	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^CXXFILENAMES=-DVIEWFILE=${VIEWFILE} -DMODELFILE=${MODELFILE} -DLIGHTFILE=${LIGHTFILE}$/;"	macro	line:48
+CXXFLAGS	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^CXXFLAGS=-DTRAX=0 -DWIDTH=${WIDTH} -DHEIGHT=${HEIGHT} ${CXXFILENAMES} -I${SIMDIR} -I${INCLUDEDIR}$/;"	macro	line:49
+CXXSIMFILES	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^CXXSIMFILES=${SIMDIR}\/LoadMemory.cc ${SIMDIR}\/OBJLoader.cc ${SIMDIR}\/IWLoader.cc ${SIMDIR}\/BVH.cc ${SIMDIR}\/Grid.cc ${SIMDIR}\/Camera.cc ${SIMDIR}\/ReadLightfile.cc ${SIMDIR}\/ReadViewfile.cc ${SIMDIR}\/Material.cc ${SIMDIR}\/Triangle.cc ${SIMDIR}\/MTLLoader.cc ${SIMDIR}\/PPM.cc ${LIBDIR}\/trax_cpp.cpp$/;"	macro	line:50
+Color	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.h	/^	Color() {$/;"	function	line:10
+Color	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.h	/^	Color(float red, float green, float blue){$/;"	function	line:15
+Color	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.h	/^class Color {$/;"	class	line:7
+HEIGHT	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^HEIGHT=512$/;"	macro	line:7
+INCLUDEDIR	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^INCLUDEDIR=..\/include$/;"	macro	line:31
+Image	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/image.h	/^		Image(int x, int y, int fb){$/;"	function	line:8
+Image	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/image.h	/^class Image {$/;"	class	line:5
+Ka	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/material.cc	/^float Material::Ka() {$/;"	function	line:9
+Kd	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/material.cc	/^float Material::Kd() {$/;"	function	line:13
+LIBDIR	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^LIBDIR=..\/lib$/;"	macro	line:28
+LIGHTFILE	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^LIGHTFILE=\\"${SIMDIR}\/lights\/cornell.light\\"$/;"	macro	line:39
+LINKERDIR	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^LINKERDIR=..\/linker$/;"	macro	line:34
+MODELFILE	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^MODELFILE=\\"${SIMDIR}\/test_models\/cornell\/CornellBox.obj\\"$/;"	macro	line:38
+Material	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/material.h	/^	Material(float coefficient1, float coefficient2) {$/;"	function	line:11
+Material	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/material.h	/^class Material {$/;"	class	line:6
+OBJS	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^OBJS := $(addprefix objs\/, $(notdir $(SOURCES:.cc=.bc)))$/;"	macro	line:79
+PinHoleCamera	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.h	/^	PinHoleCamera(Vector E, Vector C, Vector U, float ar, float ul){$/;"	function	line:13
+PinHoleCamera	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.h	/^class PinHoleCamera {$/;"	class	line:6
+PointLight	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/point_light.h	/^	PointLight(Vector p, Color k){$/;"	function	line:10
+PointLight	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/point_light.h	/^class PointLight {$/;"	class	line:6
+Ray	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.h	/^	Ray(Vector point, Vector vector) {$/;"	function	line:11
+Ray	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.h	/^class Ray {$/;"	class	line:6
+SIMDIR	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^SIMDIR=..\/..\/sim$/;"	macro	line:22
+SOURCE	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^SOURCE=raytrace.cc sphere.cc$/;"	macro	line:11
+SOURCES	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^SOURCES := $(wildcard *.cc)$/;"	macro	line:10
+Sphere	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.h	/^	Sphere(float x1, float y1, float z1, float r){$/;"	function	line:15
+Sphere	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.h	/^class Sphere {$/;"	class	line:7
+TRAXC	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^TRAXC=llvm-gcc$/;"	macro	line:54
+TRAXCFLAGS	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^TRAXCFLAGS=-DTRAX=1 -I${INCLUDEDIR}$/;"	macro	line:59
+TRAXOUTPUT	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^TRAXOUTPUT=rt-llvm.s$/;"	macro	line:17
+VIEWFILE	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^VIEWFILE=\\"${SIMDIR}\/views\/cornell_obj.view\\"$/;"	macro	line:37
+Vector	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^	Vector(){$/;"	function	line:7
+Vector	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^	Vector(float x1, float y1, float z1) {$/;"	function	line:13
+Vector	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^class Vector {$/;"	class	line:4
+WIDTH	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^WIDTH=512$/;"	macro	line:6
+__COLOR_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.h	/^#define __COLOR_H__$/;"	macro	line:2
+__IMAGE_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/image.h	/^#define __IMAGE_H__$/;"	macro	line:2
+__MAIN_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/main.h	/^#define __MAIN_H__$/;"	macro	line:2
+__MATERIAL_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/material.h	/^#define __MATERIAL_H__$/;"	macro	line:2
+__PINHOLECAMERA_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.h	/^#define __PINHOLECAMERA_H__$/;"	macro	line:2
+__POINT_LIGHT_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/point_light.h	/^#define __POINT_LIGHT_H__$/;"	macro	line:2
+__RAY_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.h	/^#define __RAY_H__$/;"	macro	line:2
+__SPHERE_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.h	/^#define __SPHERE_H__$/;"	macro	line:2
+__VECTOR_H__	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^#define __VECTOR_H__$/;"	macro	line:2
+add	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.cc	/^Color Color::add(Color color){$/;"	function	line:39
+add	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.cc	/^Vector Vector::add(Vector other){$/;"	function	line:27
+aspect_ratio	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.h	/^	float aspect_ratio;$/;"	member	line:10
+b	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.h	/^	float r, g, b;$/;"	member	line:8
+blue	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.cc	/^float Color::blue(){$/;"	function	line:17
+color	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/point_light.h	/^	Color color;$/;"	member	line:8
+cross	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.cc	/^Vector Vector::cross(Vector other) {$/;"	function	line:9
+direction	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.h	/^	Vector direction;$/;"	member	line:9
+discriminant	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.h	/^	float discriminant(float a, float b, float c) {$/;"	function	line:10
+dot	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.cc	/^float Vector::dot(Vector other) {$/;"	function	line:45
+g	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.h	/^	float r, g, b;$/;"	member	line:8
+get_color	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/point_light.cc	/^Color PointLight::get_color(){$/;"	function	line:14
+get_position	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/point_light.cc	/^Vector PointLight::get_position(){$/;"	function	line:10
+getx	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^	float getx() {return x;}$/;"	function	line:18
+gety	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^	float gety() {return y;}$/;"	function	line:19
+getz	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^	float getz() {return z;}$/;"	function	line:20
+green	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.cc	/^float Color::green(){$/;"	function	line:13
+intersects	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.cc	/^bool Sphere::intersects(Ray ray) {$/;"	function	line:10
+ka	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/material.h	/^	float ka;$/;"	member	line:8
+kd	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/material.h	/^	float kd;$/;"	member	line:9
+lambertian_shader	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.cc	/^void Sphere::lambertian_shader(){$/;"	function	line:24
+length	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.cc	/^float Vector::length (){$/;"	function	line:59
+look_at_point	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.h	/^	Vector look_at_point;$/;"	member	line:8
+main	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/test.cc	/^int main()$/;"	function	line:9
+make_ray	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.cc	/^void PinHoleCamera::make_ray(Ray &ray, float x, float y) {$/;"	function	line:9
+march	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/Makefile	/^	@${BINDIR}\/llc rt.bc -o rt.s -march=trax$/;"	macro	line:86
+normalize	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.cc	/^Vector Vector::normalize() {$/;"	function	line:53
+origin	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.h	/^	Vector origin;$/;"	member	line:8
+position	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.h	/^	Vector position;$/;"	member	line:7
+position	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/point_light.h	/^	Vector position;$/;"	member	line:7
+r	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.h	/^	float r, g, b;$/;"	member	line:8
+radius	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.h	/^	float x,y,z, radius;$/;"	member	line:9
+red	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.cc	/^float Color::red(){$/;"	function	line:9
+return_direction	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.h	/^	Vector return_direction() {return direction;}$/;"	function	line:17
+return_origin	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.h	/^	Vector return_origin() {return origin;}$/;"	function	line:16
+scmult	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.cc	/^Vector Vector::scmult(float scalar) {$/;"	function	line:18
+set	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/image.cc	/^void Image::set(int i, int j, Color result) {$/;"	function	line:11
+set_diretion	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.cc	/^void Ray::set_diretion(Vector new_direction) {$/;"	function	line:14
+set_origin	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/ray.cc	/^void Ray::set_origin(Vector new_origin) {$/;"	function	line:10
+start_fb	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/image.h	/^	int xres, yres, start_fb;$/;"	member	line:6
+sub	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.cc	/^Color Color::sub(Color color){$/;"	function	line:48
+sub	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.cc	/^Vector Vector::sub(Vector other){$/;"	function	line:36
+times	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.cc	/^Color Color::times(Color color){$/;"	function	line:21
+times	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/color.cc	/^Color Color::times(float scalar){$/;"	function	line:30
+ulen	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.h	/^	float ulen;$/;"	member	line:11
+up	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/pin_hole_camera.h	/^	Vector up;$/;"	member	line:9
+x	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.h	/^	float x,y,z, radius;$/;"	member	line:9
+x	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^	float x,y,z;$/;"	member	line:5
+xres	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/image.h	/^	int xres, yres, start_fb;$/;"	member	line:6
+y	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.h	/^	float x,y,z, radius;$/;"	member	line:9
+y	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^	float x,y,z;$/;"	member	line:5
+yres	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/image.h	/^	int xres, yres, start_fb;$/;"	member	line:6
+z	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/sphere.h	/^	float x,y,z, radius;$/;"	member	line:9
+z	/Users/atulrungta/dev/hwrt/LLVM_Trax/Assignment2/vector.h	/^	float x,y,z;$/;"	member	line:5

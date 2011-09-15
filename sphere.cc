@@ -21,6 +21,11 @@ bool Sphere::intersects(Ray ray) {
 		return false;
 }
 
-void Sphere::lambertian_shader(){
+void Sphere::lambertian_shader(Ray ray, PointLight lights, float intersection_point){
+	float costheta;
+	Vector normal = normal(intersection_point).normalize();
+	costheta = normal.dot(ray.get_direction());
+	if (costheta < 0.0f)
+		normal = -normal;
 	
 }

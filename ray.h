@@ -13,8 +13,8 @@ public:
 		direction = vector;
 	}
 	void set_origin(Vector new_origin);
-	Vector return_origin() {return origin;}
-	Vector return_direction() {return direction;}
+	Vector return_origin();
+	Vector return_direction();
 };
 
 #endif

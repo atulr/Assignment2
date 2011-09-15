@@ -2,6 +2,7 @@
 #include "point_light.h"
 
 // Only include stdio for printf on the non-trax version
+
 #if TRAX==0
 #include <stdio.h>
 #endif

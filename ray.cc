@@ -14,3 +14,11 @@ void Ray::set_origin(Vector new_origin) {
 void Ray::set_diretion(Vector new_direction) {
 	direction = new_direction;
 }
+
+Vector Ray::get_origin(){
+	return origin;
+}
+
+Vector Ray::get_direction(){
+	return direction;
+}

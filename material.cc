@@ -6,7 +6,11 @@
 #include <stdio.h>
 #endif
 
-Color Material::get_material(){
-	return color_of_material;
+float Material::Ka() {
+	return ka;
+}
+
+float Material::Kd() {
+	return kd;
 }
 
