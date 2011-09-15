@@ -7,7 +7,21 @@
 #endif
 
 Vector Vector::cross(Vector other) {
-	// code for cross product
+	float x1, y1, z1;
+	x1 = (float)(y*other.z - z*other.y);
+	y1 = (float)(z*other.x - x*other.z);
+	z1 = (float)(x*other.y - y*other.x);
+	Vector product(x1, y1, z1);
+	return product;	
+}
+
+Vector Vector::scmult(float scalar) {
+	float x1, y1, z1;
+	x1 = (float)(scalar * x);
+	y1 = (float)(scalar * y);
+	z1 = (float)(scalar * z);
+	Vector product(x1, y1, z1);
+	return product;
 }
 
 Vector Vector::add(Vector other){

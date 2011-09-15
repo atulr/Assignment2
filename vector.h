@@ -23,6 +23,7 @@ public:
 	Vector cross(Vector other);
 	Vector add(Vector other);
 	Vector sub(Vector other);
+	Vector scmult(float scalar);
 	float length();
 	
 };
