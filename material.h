@@ -9,6 +9,7 @@ private:
 	float ka;
 	float kd;
 public:
+	Material() {}
 	Material(Color material, float coefficient1, float coefficient2) {
 		color_of_material = material;
 		ka = coefficient1;

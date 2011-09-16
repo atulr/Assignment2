@@ -2,6 +2,8 @@
 #define __PINHOLECAMERA_H__
 
 #include "vector.h"
+#include "ray.h"
+#include "math.h"
 
 class PinHoleCamera {
 	Vector position;

@@ -1,9 +1,6 @@
 #ifndef __COLOR_H__
 #define __COLOR_H__
 
-// #include "object.h"
-// #include "ray.h"
-
 class Color {
 	float r, g, b;
 public:

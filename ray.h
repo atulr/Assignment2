@@ -8,13 +8,15 @@ private:
 	Vector origin;
 	Vector direction;
 public:
+	Ray(){}
 	Ray(Vector point, Vector vector) {
 		origin = point;
 		direction = vector;
 	}
 	void set_origin(Vector new_origin);
-	Vector return_origin();
-	Vector return_direction();
+	void set_direction(Vector direction);
+	Vector get_origin();
+	Vector get_direction();
 };
 
 #endif

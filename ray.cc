@@ -11,7 +11,7 @@ void Ray::set_origin(Vector new_origin) {
 	origin = new_origin;
 }
 
-void Ray::set_diretion(Vector new_direction) {
+void Ray::set_direction(Vector new_direction) {
 	direction = new_direction;
 }
 
