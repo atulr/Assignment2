@@ -21,11 +21,12 @@ bool Sphere::intersects(Ray ray) {
 		return false;
 }
 
-void Sphere::lambertian_shader(Ray ray, PointLight lights, Vector intersection){
+void Sphere::lambertian_shader(Ray ray, PointLight lights, Vector intersection, Color ambient_light){
 	float costheta, cosphi, distance, t;
 	Vector normal = normal(intersection).normalize();
 	Vector L, Ln;
-	Color light, result;
+	Color light, result; // add color to light
+	light = ambient_light.times(Ka);
 	t = discriminant(); //check this
 	costheta = normal.dot(ray.get_direction());
 	if (costheta < 0.0f)
@@ -38,6 +39,8 @@ void Sphere::lambertian_shader(Ray ray, PointLight lights, Vector intersection){
 		if (cosphi > 0){
 			if (!intersects(0 < t < distance)) { //some condition 
 				light += point_light_color.times(Kd * cosphi)
+			}else {
+				//it's a shadow with ambient lighting :D:D:D
 			}
 		}
 	}

@@ -29,8 +29,8 @@ int main()
 		int j = pix % xres;
 		float x = (float)(2.0f * (j - xres/2.0f + 0.5f)/xres);
 		float y = (float)(2.0f * (i - yres/2.0f + 0.5f)/yres);
-		Vector direction(x, y, 1.0f);
-		Ray ray(origin, direction);
+		Vector direction(x, y, 1.0f); // this step is probably not required.
+		Ray ray(origin, direction); // even this step. Just pass the ray object to make_ray.
 		if(sphere1.intersects(ray))
 			result = color1;
 		else if(sphere2.intersects(ray))
