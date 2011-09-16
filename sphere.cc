@@ -6,7 +6,7 @@
 #if TRAX==0
 #include <stdio.h>
 #endif
-
+//change this method
 bool Sphere::intersects(Ray ray) {
 	float a, b, c;
 	Vector center(x,y,z);
@@ -21,11 +21,25 @@ bool Sphere::intersects(Ray ray) {
 		return false;
 }
 
-void Sphere::lambertian_shader(Ray ray, PointLight lights, float intersection_point){
-	float costheta;
-	Vector normal = normal(intersection_point).normalize();
+void Sphere::lambertian_shader(Ray ray, PointLight lights, Vector intersection){
+	float costheta, cosphi, distance, t;
+	Vector normal = normal(intersection).normalize();
+	Vector L, Ln;
+	Color light, result;
+	t = discriminant(); //check this
 	costheta = normal.dot(ray.get_direction());
 	if (costheta < 0.0f)
 		normal = -normal;
-	
+	for (int i=0; i < sizeof(lights), i++){
+		point_light_color = lights[i].get_color();
+		distance = L.length();
+		Ln = L.normalize();
+		cosphi = normal.dot(Ln)
+		if (cosphi > 0){
+			if (!intersects(0 < t < distance)) { //some condition 
+				light += point_light_color.times(Kd * cosphi)
+			}
+		}
+	}
+	result = light * surface_color();//add surface_color method
 }

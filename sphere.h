@@ -11,11 +11,11 @@ private:
 		float val = (float) (b * b - 4 * a * c);
 		return val;
 	}
-	Vector normal(float xintersect, yintersect, zintersect){
+	Vector normal(Vector intersection){
 		float xnorm, ynorm, znorm;
-		xnorm = (float)(x - xintersect);
-		ynorm = (float)(y - yintersect);
-		znorm = (float)(z - zintersect);
+		xnorm = (float)(x - intersection.getx());
+		ynorm = (float)(y - intersection.gety());
+		znorm = (float)(z - intersection.getz());
 		Vector normal(xnorm, ynorm, znorm);
 		return normal;
 	}
