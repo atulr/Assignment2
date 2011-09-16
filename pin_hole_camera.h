@@ -17,6 +17,6 @@ public:
 		aspect_ratio = ar;
 		ulen = ul;
 	}
-	void make_ray(Ray ray, float x, float y);
+	void make_ray(Ray &ray, float x, float y);
 };
 #endif

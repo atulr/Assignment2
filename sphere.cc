@@ -21,7 +21,7 @@ bool Sphere::intersects(Ray ray) {
 		return false;
 }
 
-void Sphere::lambertian_shader(Ray ray, PointLight lights, Vector intersection, Color ambient_light){
+Color Sphere::lambertian_shader(Ray ray, PointLight lights, Vector intersection, Color ambient_light){
 	float costheta, cosphi, distance, t;
 	Vector normal = normal(intersection).normalize();
 	Vector L, Ln;
@@ -45,4 +45,5 @@ void Sphere::lambertian_shader(Ray ray, PointLight lights, Vector intersection, 
 		}
 	}
 	result = light * surface_color();//add surface_color method
+	return result;
 }
