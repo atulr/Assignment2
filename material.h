@@ -14,7 +14,10 @@ public:
 		ka = coefficient1;
 		kd = coefficient2;
 	}
-	Color get_material(); 
+
+	Color get_color();
+	float Ka(); 
+	float Kd(); 
 };
 
 #endif

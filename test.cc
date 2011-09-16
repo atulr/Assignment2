@@ -44,7 +44,6 @@ int main()
 	light_positions[0](-30.f, -20.f, 80.f);
 	light_positions[1](-20.f, -50.f, 40.f);
 	
-	//have an array of spheres
 	Sphere spheres[4];
 	spheres[0](1.5f, 3.5f, 4.f, 2.4f, material1);
 	spheres[1](-0.5, -1.5, 2.f, 1.8f, material2);
@@ -71,13 +70,13 @@ int main()
 		for (int k = 0; k < sizeof(spheres); k++) {
 			if spheres[i].intersect(ray) {
 				flag = true;
-				result = spheres[i].lambertian_shader(ray, lights, sphere[i].get_intersection(), ambient); //add parameters and the method to get the intersection
+				result = spheres[i].lambertian_shader(ray, lights, ray.get_direction(), ambient); //add parameters and the method to get the intersection
 			}
 		}
 		
 		if (flag == false)
 			result = background;
-		
+		flag = false; // lame again x-(
 		image.set(i, j, result);
 	}
 	trax_cleanup();

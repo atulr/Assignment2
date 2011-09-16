@@ -14,3 +14,7 @@ float Material::Kd() {
 	return kd;
 }
 
+Color Material::get_color() {
+	return color_of_material;
+}
+
