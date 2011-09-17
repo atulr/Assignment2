@@ -9,7 +9,7 @@
 
 class Sphere {
 private:
-	float x,y,z, radius, kd, ka;
+	float x,y,z, radius;
 	Material material;
 	bool intersects(Ray ray, Sphere spheres[]); //more parameters might be required
 	Color surface_color();

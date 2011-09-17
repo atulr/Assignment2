@@ -6,15 +6,22 @@
 #include <stdio.h>
 #endif
 
-void PinHoleCamera::make_ray(Ray &ray, float x, float y) {
-	ray.set_origin(position);
-	Vector direction, L, ln, utmp, vtmp, V, u, v;
+void PinHoleCamera::make_ray(Ray& ray, float x, float y) {
+	Vector direction, L, ln, utmp, vtmp, V, u, v, normalized_utmp, normalized_vtmp;
+	
 	L = look_at_point.sub(position);
 	ln = L.normalize();
+	
 	utmp = ln.cross(up);
-	vtmp = utmp.cross(ln);
-	u = (utmp.normalize().scmult((float)tan(ulen/2)));
-	v = (vtmp.normalize().scmult((float)(tan(ulen/2)/ aspect_ratio)));
-	V = ln.add(u.scmult(x).add(v.scmult(y)));
-	ray.set_direction(V);
+	
+	normalized_utmp = utmp.normalize();
+	
+	vtmp = normalized_utmp.cross(ln);
+	
+	normalized_vtmp = vtmp.normalize();
+	
+	u = normalized_utmp.scmult(ulen);
+	v = normalized_vtmp.scmult((float)ulen/aspect_ratio);
+	V = ln.add((u.scmult(x)).add(v.scmult(y)));
+	ray = Ray(position, V);
 }
