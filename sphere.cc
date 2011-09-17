@@ -33,9 +33,9 @@ float Sphere::get_z() {
 
 Vector Sphere::normal_to_sphere(Vector intersection) {
 	float xnorm, ynorm, znorm;
-	xnorm = (float)(x - intersection.getx());
-	ynorm = (float)(y - intersection.gety());
-	znorm = (float)(z - intersection.getz());
+	xnorm = (float)(intersection.getx() - x);
+	ynorm = (float)(intersection.gety() - y);
+	znorm = (float)(intersection.getz() - z);
 	Vector normal(xnorm, ynorm, znorm);
 	return normal;
 }
@@ -72,8 +72,8 @@ bool Sphere::intersects(Ray ray, Sphere other_spheres[]) {
 
 Color Sphere::lambertian_shader(Ray ray, PointLight lights[], Vector intersection, Color ambient_light, Sphere other_spheres[]){
 	float costheta, cosphi, distance;
-	Vector normal = intersection;
-	normal = normal_to_sphere(normal).normalize();
+	Vector normal;
+	normal = normal_to_sphere(intersection).normalize();
 	Ray ray_to_light_source;
 	Vector L, Ln;
 	Color light, result, point_light_color;
@@ -85,8 +85,7 @@ Color Sphere::lambertian_shader(Ray ray, PointLight lights[], Vector intersectio
 	for (int i=0; i < 2; i++){ //set L. find some way to find the length of object array
 		point_light_color = lights[i].get_color();
 		
-		L = intersection.sub(lights[i].get_position());
-		distance = L.length();
+		L = lights[i].get_position().sub(intersection);
 		Ln = L.normalize();
 		cosphi = normal.dot(Ln);
 		ray_to_light_source.set_origin(intersection);
