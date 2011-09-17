@@ -20,8 +20,8 @@ void PinHoleCamera::make_ray(Ray& ray, float x, float y) {
 	
 	normalized_vtmp = vtmp.normalize();
 	
-	u = normalized_utmp.scmult(ulen);
-	v = normalized_vtmp.scmult((float)ulen/aspect_ratio);
+	u = normalized_utmp.scmult(tan(ulen));
+	v = normalized_vtmp.scmult(tan((float)(ulen)/aspect_ratio));
 	V = ln.add((u.scmult(x)).add(v.scmult(y)));
 	ray = Ray(position, V);
 }

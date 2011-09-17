@@ -71,15 +71,14 @@ int main()
 			if (spheres[k].intersects(ray)) {
 				flag = true;
 				result = spheres[k].lambertian_shader(ray, lights, ray.get_direction(), ambient, spheres);
-				image.set(i, j, result);
+				break;
 			}
 		}
 		if (flag == false){
 			result = background;
-			image.set(i, j, result);
 		}
 		flag = false; // lame again
-			
+		image.set(i, j, result);	
 	}
 	trax_cleanup();
 }

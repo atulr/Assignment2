@@ -79,13 +79,13 @@ Color Sphere::lambertian_shader(Ray ray, PointLight lights[], Vector intersectio
 	Color light, result, point_light_color;
 	light = ambient_light.times(Ka());
 	costheta = normal.dot(intersection.sub(ray.get_direction()));
-	if (costheta < 0.0f)
+	if (costheta > 0.0f)
 		normal = normal.scmult(-1.f);
 
 	for (int i=0; i < 2; i++){ //set L. find some way to find the length of object array
 		point_light_color = lights[i].get_color();
 		
-		L = lights[i].get_position().sub(intersection);
+		L = intersection.sub(lights[i].get_position());
 		distance = L.length();
 		Ln = L.normalize();
 		cosphi = normal.dot(Ln);
