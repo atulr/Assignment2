@@ -61,9 +61,12 @@ bool Sphere::intersects(Ray ray, Sphere other_spheres[]) {
 	for(int i = 0; i < 4; i++) {
 		Vector center(other_spheres[i].x, other_spheres[i].y, other_spheres[i].z);
 		oprime = ray.get_origin().sub(center);
-		a = ray.get_direction().dot(ray.get_direction());
-		b = (float)2* oprime.dot(ray.get_direction());
+		oprime = oprime.normalize();
+		a = ray.get_direction().normalize().dot(ray.get_direction().normalize());
+		b = (float)2* oprime.dot(ray.get_direction().normalize());
 		c = (float)oprime.dot(oprime) - (other_spheres[i].radius * other_spheres[i].radius);
+		// trax_printf(discriminant(a,b,c));
+		
 		if (discriminant(a,b,c) > 0.0001f) // hard coded epsilon value
 			return true;
 	}
@@ -92,7 +95,7 @@ Color Sphere::lambertian_shader(Ray ray, PointLight lights[], Vector intersectio
 		ray_to_light_source.set_direction(lights[i].get_position());
 		if (cosphi > 0.f) {
 			if (!intersects (ray_to_light_source, other_spheres)) {
-				light = light.add(point_light_color.times((float)(Kd() * cosphi)));
+				// light = light.add(point_light_color);
 			}else {
 				//it's a shadow with ambient lighting :D:D:D
 			}

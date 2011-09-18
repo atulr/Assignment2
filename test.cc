@@ -58,7 +58,6 @@ int main()
 	PointLight lights[] = {PointLight(light_positions[0], light_colors[0]),
 	PointLight(light_positions[1], light_colors[1])
 	};
-	
 	for(int pix = atomicinc(0); pix < xres*yres; pix = atomicinc(0)){
 		int i = pix / xres;
 		int j = pix % xres;
@@ -74,9 +73,8 @@ int main()
 				break;
 			}
 		}
-		if (flag == false){
+		if (flag == false)
 			result = background;
-		}
 		flag = false; // lame again
 		image.set(i, j, result);	
 	}
