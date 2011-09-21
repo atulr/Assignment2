@@ -5,7 +5,7 @@
 class Image {
 	int xres, yres, start_fb;
 	public:
-		Image(int x, int y, int fb){
+		Image(int x, int y, const int& fb){
 			xres = x;
 			yres = y;
 			start_fb = fb;

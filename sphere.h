@@ -6,12 +6,14 @@
 #include "color.h"
 #include "material.h"
 #include "point_light.h"
+#include "math.h"
 
 class Sphere {
 private:
 	float x,y,z, radius;
 	Material material;
 	bool intersects(Ray ray, Sphere spheres[]); //more parameters might be required
+	float closer_point(float a, float b, float c, float disc); //more parameters might be required
 	Color surface_color();
 	float Ka();
 	float Kd();
@@ -32,7 +34,7 @@ private:
 	float get_x();
 	float get_y();
 	float get_z();
-	bool intersects(Ray ray);
+	float intersects(Ray ray);
 	Color lambertian_shader(Ray ray, PointLight lights[], Vector intersection, Color ambient_light, Sphere other_spheres[]);
 };
 

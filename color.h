@@ -19,7 +19,9 @@ public:
 	float blue();
 	Color times(Color color);
 	Color times(float scalar);
+	Color times_modify(float scalar);
 	Color add(Color color);
+	void add_modify(Color color);
 	Color sub(Color color);
 };
 #endif

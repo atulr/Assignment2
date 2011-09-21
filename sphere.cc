@@ -40,19 +40,30 @@ Vector Sphere::normal_to_sphere(Vector intersection) {
 	return normal;
 }
 
+float Sphere::closer_point(float a, float b, float c, float disc) {
+	float t1, t2;
+	t1 = (float)((- b + sqrt(disc))/ (2 * a));
+	t2 = (float)((- b - sqrt(disc))/ (2 * a));
+	if (t1 > t2)
+		return t1;
+	return t2;
+}
+
 //change this method
-bool Sphere::intersects(Ray ray) {
-	float a, b, c;
+float Sphere::intersects(Ray ray) {
+	float a, b, c, t, disc;
 	Vector center(x,y,z);
 	Vector oprime;
 	oprime = ray.get_origin().sub(center);
 	a = ray.get_direction().dot(ray.get_direction());
-	b = (float)2* oprime.dot(ray.get_direction());
+	b = (float)2* (oprime.dot(ray.get_direction()));
 	c = (float)oprime.dot(oprime) - (radius * radius);
-	if (discriminant(a,b,c) > 0.0001f) // hard coded epsilon value
-		return true;
-	else
-		return false;
+	disc = discriminant(a, b, c);
+	if (disc > 0.0001f) {// hard coded epsilon value
+		t = closer_point(a, b, c ,disc);
+		return t;
+	}
+	return 0.f;
 }
 
 bool Sphere::intersects(Ray ray, Sphere other_spheres[]) {
@@ -61,11 +72,9 @@ bool Sphere::intersects(Ray ray, Sphere other_spheres[]) {
 	for(int i = 0; i < 4; i++) {
 		Vector center(other_spheres[i].x, other_spheres[i].y, other_spheres[i].z);
 		oprime = ray.get_origin().sub(center);
-		oprime = oprime.normalize();
-		a = ray.get_direction().normalize().dot(ray.get_direction().normalize());
-		b = (float)2* oprime.dot(ray.get_direction().normalize());
+		a = ray.get_direction().dot(ray.get_direction());
+		b = (float)2* (oprime.dot(ray.get_direction()));
 		c = (float)oprime.dot(oprime) - (other_spheres[i].radius * other_spheres[i].radius);
-		// trax_printf(discriminant(a,b,c));
 		
 		if (discriminant(a,b,c) > 0.0001f) // hard coded epsilon value
 			return true;
@@ -81,21 +90,20 @@ Color Sphere::lambertian_shader(Ray ray, PointLight lights[], Vector intersectio
 	Vector L, Ln;
 	Color light, result, point_light_color;
 	light = ambient_light.times(Ka());
-	costheta = normal.dot(intersection.sub(ray.get_direction()));
+	costheta = normal.dot(ray.get_direction());
 	if (costheta > 0.0f)
 		normal = normal.scmult(-1.f);
 
 	for (int i=0; i < 2; i++){ //set L. find some way to find the length of object array
 		point_light_color = lights[i].get_color();
-		
 		L = lights[i].get_position().sub(intersection);
 		Ln = L.normalize();
 		cosphi = normal.dot(Ln);
 		ray_to_light_source.set_origin(intersection);
-		ray_to_light_source.set_direction(lights[i].get_position());
+		ray_to_light_source.set_direction(lights[i].get_position().sub(intersection));
 		if (cosphi > 0.f) {
 			if (!intersects (ray_to_light_source, other_spheres)) {
-				// light = light.add(point_light_color);
+				light.add_modify(point_light_color);
 			}else {
 				//it's a shadow with ambient lighting :D:D:D
 			}

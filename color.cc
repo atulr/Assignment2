@@ -36,6 +36,7 @@ Color Color::times(float scalar){
 	return new_color;
 }
 
+
 Color Color::add(Color color){
 	float newr, newg, newb;
 	newr = (float)(color.r + r);
@@ -45,6 +46,11 @@ Color Color::add(Color color){
 	return new_color;
 }
 
+void Color::add_modify(Color color) {
+	r = color.r + r;
+   	g = color.g + g;
+    b = color.b + b;
+}
 Color Color::sub(Color color){
 	float newr, newg, newb;
 	newr = (float)(color.r - r);

@@ -9,7 +9,7 @@
 #endif
 
 void Image::set(int i, int j, Color result) {
-  storef(result.red(), (start_fb + ( i * xres) + j) * 3, 0);
-  storef(result.green(), (start_fb + ( i * xres) + j) * 3, 1);
-  storef(result.blue(), (start_fb + ( i * xres) + j) * 3, 2);
+  storef(result.red(), start_fb + (( i * xres) + j) * 3, 0);
+  storef(result.green(), start_fb + (( i * xres) + j) * 3, 1);
+  storef(result.blue(), start_fb + (( i * xres) + j) * 3, 2);
 }

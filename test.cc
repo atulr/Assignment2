@@ -11,7 +11,10 @@ int main()
 	trax_setup();
 	int xres = loadi( 0, 1 );
 	int yres = loadi( 0, 4 );
-	int start_fb = loadi( 0, 7 );
+//	int start_fb = loadi( 0, 7 );
+	int start_fb = GetFrameBuffer();
+	
+	float t = 0.f;
 	
 	bool flag = false; //this is kinda lame
 	
@@ -67,9 +70,12 @@ int main()
 		
 		camera.make_ray(ray, x, y);
 		for (int k = 0; k < 4; k++) {
+			t = spheres[k].intersects(ray);
 			if (spheres[k].intersects(ray)) {
 				flag = true;
-				result = spheres[k].lambertian_shader(ray, lights, ray.get_direction(), ambient, spheres);
+				Vector temp = ray.get_origin().add(ray.get_direction().scmult(t));
+				Vector intersection_point(temp.getx(), temp.gety(), temp.getz());
+				result = spheres[k].lambertian_shader(ray, lights, intersection_point, ambient, spheres); //this seems to be a problem
 				break;
 			}
 		}

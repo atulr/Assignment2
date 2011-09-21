@@ -14,4 +14,3 @@ Vector PointLight::get_position(){
 Color PointLight::get_color(){
 	return color;
 }
-8016287836
