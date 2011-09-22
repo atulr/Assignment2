@@ -11,14 +11,6 @@ Color Sphere::surface_color() {
 	return material.get_color();
 }
 
-float Sphere::Ka(){
-	return material.Ka();
-}
-
-float Sphere::Kd(){
-	return material.Kd();
-}
-
 float Sphere::get_x() {
 	return x;
 }
@@ -31,25 +23,29 @@ float Sphere::get_z() {
 	return z;
 }
 
-Vector Sphere::normal_to_sphere(Vector intersection) {
-	float xnorm, ynorm, znorm;
-	xnorm = (float)(intersection.getx() - x);
-	ynorm = (float)(intersection.gety() - y);
-	znorm = (float)(intersection.getz() - z);
-	Vector normal(xnorm, ynorm, znorm);
-	return normal;
+float Sphere::Ka(){
+	return material.Ka();
+}
+
+float Sphere::Kd(){
+	return material.Kd();
 }
 
 float Sphere::closer_point(float a, float b, float c, float disc) {
 	float t1, t2;
 	t1 = (float)((- b + sqrt(disc))/ (2 * a));
 	t2 = (float)((- b - sqrt(disc))/ (2 * a));
-	if (t1 > t2)
+	if (t1 < t2)
 		return t1;
 	return t2;
 }
 
-//change this method
+
+Vector Sphere::normal(Vector intersection_point){
+	Vector center(x, y, z);
+	return (center.sub(intersection_point));
+}
+
 float Sphere::intersects(Ray ray) {
 	float a, b, c, t, disc;
 	Vector center(x,y,z);
@@ -59,56 +55,60 @@ float Sphere::intersects(Ray ray) {
 	b = (float)2* (oprime.dot(ray.get_direction()));
 	c = (float)oprime.dot(oprime) - (radius * radius);
 	disc = discriminant(a, b, c);
-	if (disc > 0.0001f) {// hard coded epsilon value
+	if (disc > 0.f) {
 		t = closer_point(a, b, c ,disc);
-		return t;
+		if (t > 0.001f)
+			return t ;
 	}
 	return 0.f;
+	
 }
 
-bool Sphere::intersects(Ray ray, Sphere other_spheres[]) {
-	float a, b, c;
+bool Sphere::intersects(Ray ray, Sphere other_spheres[], float distance) {
+	float a, b, c, t, disc;
 	Vector oprime;
-	for(int i = 0; i < 4; i++) {
+	for(int i = 0; i <  4 ; i++) {
 		Vector center(other_spheres[i].x, other_spheres[i].y, other_spheres[i].z);
 		oprime = ray.get_origin().sub(center);
 		a = ray.get_direction().dot(ray.get_direction());
 		b = (float)2* (oprime.dot(ray.get_direction()));
 		c = (float)oprime.dot(oprime) - (other_spheres[i].radius * other_spheres[i].radius);
-		
-		if (discriminant(a,b,c) > 0.0001f) // hard coded epsilon value
-			return true;
-	}
+		disc = discriminant(a,b,c);
+		if (disc > 0.f) // hard coded epsilon value
+			t = closer_point(a, b, c, disc);
+			if ( t < distance && t > 0.001f){
+				return true;
+			}
+		}
 	return false;
 }
 
-Color Sphere::lambertian_shader(Ray ray, PointLight lights[], Vector intersection, Color ambient_light, Sphere other_spheres[]){
-	float costheta, cosphi, distance;
-	Vector normal;
-	normal = normal_to_sphere(intersection).normalize();
+Color Sphere::lambertian_shader(Ray ray, float t, PointLight lights[], Color ambient_light, Sphere other_spheres[]) {
+	float costheta, cosphi;
 	Ray ray_to_light_source;
-	Vector L, Ln;
-	Color light, result, point_light_color;
-	light = ambient_light.times(Ka());
-	costheta = normal.dot(ray.get_direction());
-	if (costheta > 0.0f)
-		normal = normal.scmult(-1.f);
-
-	for (int i=0; i < 2; i++){ //set L. find some way to find the length of object array
-		point_light_color = lights[i].get_color();
-		L = lights[i].get_position().sub(intersection);
-		Ln = L.normalize();
-		cosphi = normal.dot(Ln);
-		ray_to_light_source.set_origin(intersection);
-		ray_to_light_source.set_direction(lights[i].get_position().sub(intersection));
+	Vector hit_position = ray.get_origin().add((ray.get_direction().scmult(t)));
+	Vector N = normal(hit_position).normalize();
+	costheta = N.dot(ray.get_direction().normalize());
+	hit_position = hit_position.sub(N.scmult(.1f));
+	if (costheta > 0.f)
+		N = N.scmult(-1.f);
+		
+	Color light = ambient_light.times(Ka());
+	
+	for (int i = 0; i < 2 ; i++) {
+		Vector L = lights[i].get_position().sub(hit_position);
+		Vector Ln = L.normalize();
+		cosphi = N.dot(Ln);
+		ray_to_light_source.set_origin(hit_position);
+		ray_to_light_source.set_direction(L);
 		if (cosphi > 0.f) {
-			if (!intersects (ray_to_light_source, other_spheres)) {
-				light.add_modify(point_light_color);
-			}else {
-				//it's a shadow with ambient lighting :D:D:D
-			}
+//			 if (!intersects(ray_to_light_source, other_spheres, L.length())) {
+				light.add_modify(lights[i].get_color().times((float)(Kd() * cosphi)));
+//			 }else{
+//			 	//it's a shadow with ambient lighting :D:D:D
+//			 }
 		}
 	}
-	result = light.times(surface_color());
-	return result;
+	light = light.times(surface_color());
+	return light;
 }

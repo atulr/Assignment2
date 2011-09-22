@@ -71,15 +71,13 @@ int main()
 		camera.make_ray(ray, x, y);
 		for (int k = 0; k < 4; k++) {
 			t = spheres[k].intersects(ray);
-			if (spheres[k].intersects(ray)) {
+			if (t > 0.f) {
 				flag = true;
-				Vector temp = ray.get_origin().add(ray.get_direction().scmult(t));
-				Vector intersection_point(temp.getx(), temp.gety(), temp.getz());
-				result = spheres[k].lambertian_shader(ray, lights, intersection_point, ambient, spheres); //this seems to be a problem
+				result = spheres[k].lambertian_shader(ray, t, lights, ambient, spheres);
 				break;
 			}
 		}
-		if (flag == false)
+		if (!flag)
 			result = background;
 		flag = false; // lame again
 		image.set(i, j, result);	
