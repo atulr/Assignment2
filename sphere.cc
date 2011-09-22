@@ -57,7 +57,7 @@ float Sphere::intersects(Ray ray) {
 	disc = discriminant(a, b, c);
 	if (disc > 0.f) {
 		t = closer_point(a, b, c ,disc);
-		if (t > 0.001f)
+		if (t > 0.0000001f)
 			return t ;
 	}
 	return 0.f;
@@ -76,7 +76,7 @@ bool Sphere::intersects(Ray ray, Sphere other_spheres[], float distance) {
 		disc = discriminant(a,b,c);
 		if (disc > 0.f)
 			t = closer_point(a, b, c, disc);
-			if ( t < distance && t > 0.001f){
+			if ( t < distance && t > 0.0000001f){
 				return true;
 			}
 		}
@@ -89,7 +89,7 @@ Color Sphere::lambertian_shader(Ray ray, float t, PointLight lights[], Color amb
 	Vector hit_position = ray.get_origin().add((ray.get_direction().scmult(t)));
 	Vector N = normal(hit_position).normalize();
 	costheta = N.dot(ray.get_direction().normalize());
-	hit_position = hit_position.sub(N.scmult(.0001f));
+	hit_position = hit_position.add(N.scmult(.01f));
 	if (costheta > 0.f)
 		N = N.scmult(-1.f);
 		
