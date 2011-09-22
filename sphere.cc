@@ -74,7 +74,7 @@ bool Sphere::intersects(Ray ray, Sphere other_spheres[], float distance) {
 		b = (float)2* (oprime.dot(ray.get_direction()));
 		c = (float)oprime.dot(oprime) - (other_spheres[i].radius * other_spheres[i].radius);
 		disc = discriminant(a,b,c);
-		if (disc > 0.f) // hard coded epsilon value
+		if (disc > 0.f)
 			t = closer_point(a, b, c, disc);
 			if ( t < distance && t > 0.001f){
 				return true;
@@ -89,7 +89,7 @@ Color Sphere::lambertian_shader(Ray ray, float t, PointLight lights[], Color amb
 	Vector hit_position = ray.get_origin().add((ray.get_direction().scmult(t)));
 	Vector N = normal(hit_position).normalize();
 	costheta = N.dot(ray.get_direction().normalize());
-	hit_position = hit_position.sub(N.scmult(.1f));
+	hit_position = hit_position.sub(N.scmult(.0001f));
 	if (costheta > 0.f)
 		N = N.scmult(-1.f);
 		
@@ -102,11 +102,11 @@ Color Sphere::lambertian_shader(Ray ray, float t, PointLight lights[], Color amb
 		ray_to_light_source.set_origin(hit_position);
 		ray_to_light_source.set_direction(L);
 		if (cosphi > 0.f) {
-//			 if (!intersects(ray_to_light_source, other_spheres, L.length())) {
+			 if (!intersects(ray_to_light_source, other_spheres, L.length())) {
 				light.add_modify(lights[i].get_color().times((float)(Kd() * cosphi)));
-//			 }else{
-//			 	//it's a shadow with ambient lighting :D:D:D
-//			 }
+			 }else{
+			 	//it's a shadow with ambient lighting :D:D:D
+			 }
 		}
 	}
 	light = light.times(surface_color());
