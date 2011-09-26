@@ -11,7 +11,6 @@ int main()
 	trax_setup();
 	int xres = loadi( 0, 1 );
 	int yres = loadi( 0, 4 );
-//	int start_fb = loadi( 0, 7 );
 	int start_fb = GetFrameBuffer();
 	
 	float t = 0.f;

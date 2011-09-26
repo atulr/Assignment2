@@ -89,7 +89,6 @@ Color Sphere::lambertian_shader(Ray ray, float t, PointLight lights[], Color amb
 	Vector hit_position = ray.get_origin().add((ray.get_direction().scmult(t)));
 	Vector N = normal(hit_position).normalize();
 	costheta = N.dot(ray.get_direction().normalize());
-	hit_position = hit_position.add(N.scmult(.01f));
 	if (costheta > 0.f)
 		N = N.scmult(-1.f);
 		
@@ -103,7 +102,7 @@ Color Sphere::lambertian_shader(Ray ray, float t, PointLight lights[], Color amb
 		ray_to_light_source.set_direction(L);
 		if (cosphi > 0.f) {
 			 if (!intersects(ray_to_light_source, other_spheres, L.length())) {
-				light.add_modify(lights[i].get_color().times((float)(Kd() * cosphi)));
+				light = light.add(lights[i].get_color().times((float)(Kd() * cosphi)));
 			 }else{
 			 	//it's a shadow with ambient lighting :D:D:D
 			 }
